@@ -11,3 +11,7 @@
 例外	          !keep_this.txt	      前面加 ! = 这条不要忽略
 
 路径不要带空格
+
+
+day3
+了解了input、print（f、int、float、round（number,x）、print（f：.xf）
