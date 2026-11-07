@@ -28,5 +28,5 @@ while True:  #无限循环，可以定义打破规则
     if n > 0 :
         break   #break即为打破循环,,,当然这里可以不用continue，可以直接定义什么时候打破循环即可
 
-    for _ in range (n):
-        print ("hello" )
+for _ in range (n):
+    print ("hello" )
