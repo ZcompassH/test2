@@ -123,4 +123,12 @@ for student in sorted(students,key=lambda student: student["name"]):
     print(f"{student['name']} is from {student['home']}")
 #reader认索引，因为是list，而DictDReader认名字，因为是字典，不怕打乱顺序
 
+#现在考虑怎么往csv里写入内容
+import csv
 
+name = input("what's your name?")
+home = input("where's your home?")
+
+with open("exercises/students.csv") as file:
+    writer = csv.writer(file)
+    writer.writerow([name,home])
