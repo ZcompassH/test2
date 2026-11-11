@@ -79,8 +79,18 @@ with open("students.csv") as file:
 def get_name(student):
     return student["name"]
                                   #key是sorted里用来特定排序的功能，可单独按照get_name的返回值来排序，这里函数不加括号()
-for student in sorted(student, key=get_name ,reverse=True):#reverse=True可以反向排序，默认值为Flase，更改后即可反向排序
+for student in sorted(students, key=get_name ,reverse=True):#reverse=True可以反向排序，默认值为Flase，更改后即可反向排序
     print(f"{student['name']} is in {student['house']}")
+#上述代码里，定义的get_name()后立刻就使用且只用一次，因此可省略
+for student in sorted(students, key=lambda student: students["name"]):#sorted会自动调用key=的函数
+    print(f"{student['name']} is in {student['house']}")
+#lambda是匿名函数，用在这种只需要调用一次的函数时，避免反复定义这种一次性函数，
+
+def get_name(s):
+    return s["name"]
+
+# 上面这两行，和下面这一行是同一个东西
+get_name = lambda s: s["name"]#lambda在定义时不用加（），调用时才用
 
 
 
