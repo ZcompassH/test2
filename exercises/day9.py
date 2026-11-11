@@ -88,7 +88,6 @@ for student in sorted(students, key=lambda student: students["name"]):#sorted会
 
 def get_name(s):
     return s["name"]
-
 # 上面这两行，和下面这一行是同一个东西
 get_name = lambda s: s["name"]#lambda在定义时不用加（），调用时才用
 
@@ -99,4 +98,16 @@ with open("students.csv", encoding="utf-8") as file:
     next(file)          # 跳过表头
     for line in file:
         ...         
+
+#csv里有现成的函数去处理csv文件，比spilt更加智能
+import csv #a mudual
+students = []#创建list
+with open("exercises/students.csv") as file:
+    reader = csv.reader(file)#csv.reader可以查看并处理.csv文件
+#提取文件里用逗号分隔的存量，并且会识别一些不应该被分隔，但带有逗号的存量
+    for name,home in reader:
+        students.append({"name": name,"home":home})
+for student in sorted(students,key=lambda student: student["name"]):
+    print(f"{student['name']}is from {student['home']}")
+
 
