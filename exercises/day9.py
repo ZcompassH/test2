@@ -45,8 +45,25 @@
 names = [] #创建list
 
 with open("names.txt")as file: #open默认是r模式，用r模式可以不写
-    for line in file:
-        names.append(line.rstrip())
+#     for line in file:
+#         names.append(line.rstrip())#这里append是在list里追加存量，在file里循环追加
 
-for name in sorted(names):#sorted是排序函数，按字母排序
-    print(f"hello,{name}")
+# for name in sorted(names):#sorted是排序函数，按字母排序
+#     print(f"hello,{name}")
+#为什么不直接排序file？
+    for line in sorted(file):
+        print("hello,",line.rstrip())
+
+#逗号分隔值文件，csv   CSV（Comma-Separated Values，逗号分隔值）
+with open("students.csv") as file:
+    for line in file:
+        # row = line.rstrip().split(",")
+        # print(f"{row[0]} is in {row[1]}")
+#split(，)函数，可以分割scv文件的每一行用逗号隔开的存量，然后组成一个list，最后可以用row[0]这样来引用
+#注意事项：
+#由于文件读出来最后都会带\n，所以永远是 line.strip().split(",")，先去掉首尾空白和换行。
+#split出来都是字符串，"11"是字符串不是数字
+#引号里的逗号也会被拆
+        name,house = line.rstrip().split(",")
+        print(f"{name} is in {house}")#如果提前知道file里一行是两个存量，可以提前定义这两个存量，然后直接调用
+        #这样写比row[0]要更加直接，清晰
