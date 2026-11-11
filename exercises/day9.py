@@ -72,12 +72,21 @@ with open("students.csv") as file:
 students = []
 with open("students.csv") as file:
     for line in file:
-        name,house = line.rstrip.split(",")
+        name,house = line.rstrip().split(",")
         student = {"name": name, "house":house}#创建字典，并关联
         students.append(student)
 
 def get_name(student):
     return student["name"]
                                   #key是sorted里用来特定排序的功能，可单独按照get_name的返回值来排序，这里函数不加括号()
-for student in sorted(student, key=get_name reverse=True):#reverse=True可以反向排序，默认值为Flase，更改后即可反向排序
-    print(f"{st ['name']} is in {student['house']}")
+for student in sorted(student, key=get_name ,reverse=True):#reverse=True可以反向排序，默认值为Flase，更改后即可反向排序
+    print(f"{student['name']} is in {student['house']}")
+
+
+
+#  encoding=... 可以避免文件里有中文造成的报错
+with open("students.csv", encoding="utf-8") as file:
+    next(file)          # 跳过表头
+    for line in file:
+        ...         
+
