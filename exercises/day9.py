@@ -110,4 +110,17 @@ with open("exercises/students.csv") as file:
 for student in sorted(students,key=lambda student: student["name"]):
     print(f"{student['name']}is from {student['home']}")
 
+    #经过漫长的理解，终于进入最后的DictReader
+    #reader会把每行的文本加载成列的列表，而DictReader会加载成列的字典
+
+import csv #a mudual
+students = []#创建list
+with open("exercises/students.csv") as file:
+    reader = csv.Dictreader(file)
+    for row in reader:
+        students.append({"name": row["name"],"home":row["home"]})
+for student in sorted(students,key=lambda student: student["name"]):
+    print(f"{student['name']} is from {student['home']}")
+#reader认索引，因为是list，而DictDReader认名字，因为是字典，不怕打乱顺序
+
 
