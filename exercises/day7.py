@@ -32,7 +32,7 @@ elif len(sys.argv)>2:    #这里只需要了解exit的用法即可
 print("hello,my name is",sys.argv[1])
 
 #  sys.argv 可以打印多个量，
-for arg in sys.argv：
+for arg in sys.argv:
     print("hello,my name is",arg)#但是你会多打印一个量，就是索引为0的程序名字，
 #因此，这里引入切片语法，[1:]  ,这样表示从索引1到一个用户给的值，可以避开0，或者你想要其他的范围
 
@@ -47,7 +47,7 @@ for arg in sys.argv：
 #JSON是一种文本类型，用request访问，可以用JSON来展现内容
 
 #最后，你可以创建自己的package，但在最后调用主函数时，应该加入
-if __name__ == "__main__"
+if __name__ == "__main__":
     main
 #意思是，如果调用这个库时，程序名不为库的名字，不运行主函数，这样调用这个包的用户就不会莫名其妙run
 #算是给main函数加了一道身份确认，但这个package里的其他函数，别人就可以无打扰的调用了

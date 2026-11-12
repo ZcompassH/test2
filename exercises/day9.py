@@ -54,6 +54,9 @@ with open("names.txt")as file: #open默认是r模式，用r模式可以不写
     for line in sorted(file):
         print("hello,",line.rstrip())
 
+
+
+
 #逗号分隔值文件，csv   CSV（Comma-Separated Values，逗号分隔值）
 with open("students.csv") as file:
     for line in file:
