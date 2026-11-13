@@ -1,6 +1,6 @@
 # 正则表达式  regex
 
-import re #这个库可以表达很多模式，里面的search(par,str,falg..=0)
+import re #这个库可以表达很多模式，里面的search(par,str,falgs=0)
 
 #写一个检查用户输入是否符合邮箱要求的函数
 email = input("what's your email?").strip() #.strip消除输入内容首位的空格，避免用户误输入
@@ -11,5 +11,8 @@ else:
     print("Invalid")
 #notes：  *表示左边内容出现0次或多次，[]表示只允许括号内的字符出现，[^]表示不允许括号里的内容出现，与"."都是表示字符内容
 #表达式内，{1}也可以表示一个字符，但繁琐，不如用.     []内可以用-来表示范围，如[a-zA-Z0-9_]
-#而[a-zA-Z0-9_]可以直接表示为\w   因为这个范围很常见，已经内置到re里了
+#而[a-zA-Z0-9_]可以直接表示为\w   因为这个范围很常见，已经内置到re里了  \W表示否定这个范围
+#d表示0-9，\D表示反例    \s表示空白字符，如空格和tab产生的空白字符，反之\S
 
+if re.search(r"^\w+@\w+\.edu$",email)#现在可以写成这样
+if re.search(r"^\w+@\w+\.edu$",email,re.IGNORECASE) #加入falgs，re.IGNORECASE可以忽略大小写
