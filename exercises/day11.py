@@ -14,10 +14,10 @@ else:
 #而[a-zA-Z0-9_]可以直接表示为\w   因为这个范围很常见，已经内置到re里了  \W表示否定这个范围
 #d表示0-9，\D表示反例    \s表示空白字符，如空格和tab产生的空白字符，反之\S
 
-if re.search(r"^\w+@\w+\.edu$",email)#现在可以写成这样
-if re.search(r"^\w+@\w+\.edu$",email,re.IGNORECASE) #加入falgs，re.IGNORECASE可以忽略大小写z
+if re.search(r"^\w+@\w+\.edu$",email):#现在可以写成这样
+if re.search(r"^\w+@\w+\.edu$",email,re.IGNORECASE): #加入falgs，re.IGNORECASE可以忽略大小写z
 # A|B  either A or B      (...) a group    (?:...) non-capturing version
-if re.search(r"^\w+@(\w\.)?\w+\.edu$",email,re.IGNORECASE)  #这样可以访问带子域名的地址或不带，把？换成*可以带更多
+if re.search(r"^\w+@(\w\.)?\w+\.edu$",email,re.IGNORECASE):  #这样可以访问带子域名的地址或不带，把？换成*可以带更多
 #当然，已经有人写好了关于邮箱输入的正则表达式，只需找相关需要的库即可
 
 
