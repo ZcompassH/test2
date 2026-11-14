@@ -10,13 +10,19 @@ class Student: #定义一个类，只要定义了类，就会自动得到一个�
         self.house = house
 
 def main():
-    student = get_student()
-    print(f"{student.name} from {student.house}")
+    student = get__student()
+    print(f"{name} from {house}")??
 
-def get_student():
-    student = Student()
-    student.name = input("Name: ")#用点语法给类添加属性（attributes）  实例变量(instance variables)
-    student.house = input("House: ") #name,house本质是这个类内部的实例变量
+# def get_student():
+#     student = Student()
+#     student.name = input("Name: ")#用点语法给类添加属性（attributes）  实例变量(instance variables)
+#     student.house = input("House: ") #name,house本质是这个类内部的实例变量
+#     return student
+
+def get__student():
+    name = input("Name: ")
+    house = input("House: ")
+    student = Student(name, house)#创建类自动生成的同名函数，储存变量name,house
     return student
 
 if __name__ == "__main__":
