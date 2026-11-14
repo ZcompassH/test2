@@ -11,7 +11,7 @@ class Student: #定义一个类，只要定义了类，就会自动得到一个�
 
 def main():
     student = get__student()
-    print(f"{name} from {house}")??
+    print(f"{student.name} from {student.house}")
 
 # def get_student():
 #     student = Student()
