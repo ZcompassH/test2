@@ -22,7 +22,7 @@ def main():
 def get__student():
     name = input("Name: ")
     house = input("House: ")
-    student = Student(name, house)#创建类自动生成的同名函数，储存变量name,house
+    student = Student(name, house)#类名后面加括号，就是在"创建对象"。这个动作会自动调用 __init__
     return student
 
 if __name__ == "__main__":
