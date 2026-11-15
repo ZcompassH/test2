@@ -30,9 +30,17 @@ class Vault:#金库
     def __str__(self):
         return f"{self.yuan} yuan, {self.jiao} jiao, {self.fen} fen"
 
+    def __add__(self, other):#other也是默认规定，可以改
+        yuan = self.yuan + other.yuan
+        jiao = self.jiao + other.jiao#这里的元角分其实用复数来区分更清晰，但实际只是局部的变量，不会冲突
+        fen = self.fen + other.fen
+        return Vault(yuan, jiao, fen)
+
 zh = Vault(100,50,25)
 print(zh)
 
 ljl = Vault(50,100,25)
 print(ljl)
 #现在要实现直接zh + ljl ，所以要让python理解我们现在+的意思
+total = zh + ljl #通过__add__  ,可以实现两个实例的相加，因为我们补充的+的定义、用法
+print(total)
