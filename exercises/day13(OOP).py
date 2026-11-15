@@ -14,11 +14,11 @@ class Student:
     def house(self):
         return self._house#这里的_是为了避免与init里的self.house冲突的默认写法
 #Setter设置器，设置属性值的函数
-    @house.setter  #将下面的函数设成Setter
+    @house.setter  #将下面的函数设成Setter，且这里的名字与Geeter相同，是因为创建Geeter后自动生成的Setter
     def house(self,house):#将Setter的名字设置成属性名即house，此时所有带.house的变量都需要来Setter里验证一遍是否可以操作，包括init函数
         if house not in ["hubei", "shanxi", "shandong", "heilongjiang"]:
             raise ValueError("Ivalid house") 
-        self._house = house
+        self._house = house#这样设置后可以防止程序被恶意篡改，如果想在main里改self.house都会经过Setter的验证是否通过
 
 def main():
     student = get__student()
