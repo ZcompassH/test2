@@ -38,3 +38,6 @@ if __name__ == "__main__":
 
 #properties更具防御性的attribute     decorators装饰器
 #@property语法
+
+
+#@classmethod  类方法，不同于实例变量。它不定义一种新的区分与其他method，而是取相同点
