@@ -19,7 +19,10 @@ class Student:
         if house not in ["hubei", "shanxi", "shandong", "heilongjiang"]:
             raise ValueError("Ivalid house") 
         self._house = house#这样设置后可以防止程序被恶意篡改，如果想在main里改self.house都会经过Setter的验证是否通过
-
+#真的能防止吗？改不了self.house,但可以改self._house。
+    #python设计的目的就是这种可见性，没有真正的可以防止修改内容的方式，python并不想要强制要求
+    # python里的self._house（也可以写成self.__house）本质是一种君子约定，告诉别人不要修改这里，起到强调作用
+#其实int、str、list、dict都是class（类），里面都内置了很多method，如list.lower来强制小写             
 def main():
     student = get__student()
     print(student) #def了__str__之后，打印出来的内容会变成想要的字符串形式
