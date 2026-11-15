@@ -9,9 +9,12 @@ class Student:
         self.name = name
         self.house = house
 
+    def __str__(self): #可以把print打印的隐晦信息转换成字符串，使其可读
+        return f"{self.name} from {self.house}"
+
 def main():
     student = get__student()
-    print(f"{student.name} from {student.house}")
+    print(student) #def了__str__之后，打印出来的内容会变成想要的字符串形式
 
 def get__student():
     name = input("Name: ")
