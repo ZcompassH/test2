@@ -7,8 +7,8 @@ class Account:
         return self._balance
 
     def deposit(self, n):
-        self._balance += n
-
+        self._balance += n  #_balance 才是存数据的地方；balance 只是只读窗口，不能赋值
+#_balance 是唯一的存储位置，balance 只是读它的入口。 所以任何"改"，最终都必须落到 _balance 上——哪怕是在 setter 里面。
     def withdraw(self, n):
         self._balance -= n
 
