@@ -38,7 +38,7 @@
 # tx = input("say something").lower()
 # dic = {}
 # for i in tx:
-#     if i.isalpha():
+#     if i.isalpha():   #判断是否为字母
 #         dic[i] = dic.get(i, 0) + 1
 # for i, n in sorted(dic.items(), key=lambda x: x[1], reverse=True):
 #     print(i, n)
@@ -48,7 +48,7 @@
 # def get_even(a):
 #     evens = []
 #     for i in range(1,a+1):
-#         if i % 2 == 0:
+#         if i % 2 == 0:   #判断是否为偶数
 #             evens.append(i)
 #     return evens
 
@@ -88,11 +88,11 @@ count = {}
 with open(path,encoding="utf-8") as f:
     file = f.read().strip()#read是读成一整个字符串，readlines是每行一个元素，readline只读一行
 
-words = re.findall(r"[a-z']+", file.lower())
+words = re.findall(r"[a-z']+", file.lower())#不写^ 不然只能读到第一个单词，^表示的是位置0，即字符串的最开头
 for w in words:
-    count[w] = count.get(w,0) + 1
+    count[w] = count.get(w,0) + 1  #字典计数
 
 top10 = sorted(count.items(), key=lambda x: x[1], reverse=True)[:10]
     
 for w, n in top10:
-    print(f"{w:<12}{n}")
+    print(f"{w:<12}{n}") #:<12表示左对齐，占12格
